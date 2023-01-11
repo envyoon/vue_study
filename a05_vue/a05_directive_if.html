@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+</head>
+<body>
+	<div id="show" style="background-color:smokewhite;">
+		<h2 align="center">{{msg}}</h2>
+		가격:<input v-model="price"/><br>
+		<h3 v-if="price>=100000">고가</h3>
+		<h3 v-else-if="price>=50000">중가</h3>
+		<h3 v-else="price">저가</h3>
+		
+		
+	</div>
+	
+	<div id="show2" style="background-color:skyblue;">
+		<h3>성적입력:<input v-model="score"/><br>
+			<span v-if="score>=90">A</span>
+			<span v-else-if="score>=80">B</span>
+			<span v-else-if="score>=70">C</span>
+			<span v-else-if="score>=60">D</span>
+			<span v-else="score">F</span>
+		</h3>
+		<h3>결과 : <span v-show="score<70">불</span>합격</h3>
+	</div>
+</body>
+<script>
+	/*
+	# 조건문 처리
+	1. v-if : 해당 조건일 때만 DOM 객체가 출력
+	2. v-show : 일단 DOM객체가 로딩되어 조건이 true일 때만 보이게 하거나
+		그렇게 하지 않게 처리.
+	ex) 학점에 따른 등급을 처리하세요 점수:[  ] 등급 : @@@@
+			~90 : A, 80~89 : B... F
+	*/
+	var vm = new Vue({
+		el:"#show",
+		data:{msg:"시작!!",price:1000}
+	});
+	
+	var vm1 = new Vue({
+		el:"#show2",
+		data:{score:100}
+	});
+</script>
+</html>

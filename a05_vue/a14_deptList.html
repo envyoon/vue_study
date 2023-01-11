@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"부서정보 뷰로 조회",sch:{dname:"",loc:""},deptList:[]},
+			methods:{
+				search:function(){
+				if(event.keyCode==13){
+					
+					var vm = this;
+					$.ajax({
+						url:"/springweb/deptAjax01.do",
+						data:vm.sch,
+						dataType:"json",
+						success:function(data){
+							vm.deptList = data.deptList;
+						},
+						error:function(err){
+							console.log(err)
+						}
+					});
+					
+					//console.log("부서이름:"+this.sch.dname);
+					//console.log("부서위치:"+this.sch.loc);
+					//this.deptList=[{deptno:50,dname:"개발팀",loc:"분당"}]
+					//console.log(this.deptList);
+				}
+				}
+			}
+		});	
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="부서이름" v-model="sch.dname" @keyup.13="search"/>
+	    <input class="form-control mr-sm-2" placeholder="부서위치" v-model="sch.loc" @keyup.13="search"/>
+	    <!-- 
+	    13번(엔터키) 를 눌렀을 때만 keyup 실행
+	     -->
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>부서번호</th>
+        <th>부서이름</th>
+        <th>부서위치</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(dept, idx) in deptList">
+    		<td>{{dept.deptno}}</td>
+    		<td>{{dept.dname}}</td>
+    		<td>{{dept.loc}}</td>
+    	</tr>
+    				
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

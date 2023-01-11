@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+</head>
+<body>
+	<div id="show">
+		<h2 align="center">{{name}}</h2>
+		<h2 align="center">{{age}}</h2>
+		<h2 align="center">{{loc}}</h2>
+	</div>
+</body>
+<script>
+
+	var model = {name:"허윤석",age:"27",loc:"안양"};
+	var viewmodel = new Vue({
+		el:"#show",
+		data:model
+	});
+</script>
+</html>

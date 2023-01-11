@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+</head>
+<body>
+	<div id="show">
+		<h2 align="center">{{msg}}</h2>
+		
+		<p align="center">
+		정렬:
+		<select v-model="aligns">
+			<option>center</option>		
+			<option>left</option>		
+			<option>right</option>		
+		</select>
+		<h3 v-bind:align="aligns">안녕!!</h3>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el:"#show",
+		data:{msg:"v-model을 통한 속성 변경",aligns:"center"}
+	});
+</script>
+</html>
