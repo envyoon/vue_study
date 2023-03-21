@@ -29,3 +29,7 @@ A
 ### Vue 버전 업데이트
 
 npm update -g @vue/cli
+
+### Vue 진행 
+1. 간단한 문법과 이론 공부
+2. Todo List 제작을 통해 직접 
