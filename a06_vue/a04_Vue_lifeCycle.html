@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
-<style>
-	td{text-align:center;}
-</style>
-<script src="/springweb/a00_com/jquery.min.js"></script>
-<script src="/springweb/a00_com/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
-<script type="text/javascript">
-/*
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" />
+    <style>
+      td {
+        text-align: center;
+      }
+    </style>
+    <script src="/springweb/a00_com/jquery.min.js"></script>
+    <script src="/springweb/a00_com/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script
+      src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      /*
 # vue의 instance life cycle
 1. 뷰는 크게 creation(생성), mounting(로딩), updating(수정),
 	destruction(소멸) 단계로 라이프 사이클을 가지고 있다.
@@ -41,64 +46,86 @@
 	4) 인스턴스의 소멸 
  
  */
-	$(document).ready(function(){
-		var vm = new Vue({
-			el:".container",
-			data:{msg:"뷰인스턴스 라이프 사이클", id:"",pass:"", status:""},
-			created:function(){
-				console.log("# 인스턴스 생성! #");
-				this.status = "# 인스턴스 생성!#";
-			},
-			beforeUpdated:function(){
-				console.log("# 수정 직전! #");
-				this.status = "# 수정 직전! #";
-				console.log("아이디:"+this.id)
-				console.log("패스워드:"+this.pass)
-			},
-			updated:function(){
-				console.log("# 수정 후! #");
-				this.status = "# 수정 후! #";
-				console.log("아이디:"+this.id)
-				console.log("패스워드:"+this.pass)			
-			}			
-		});	
-	});
-</script>
-</head>
-<body>
-<div class="container">
-	<div class="jumbotron text-center">
-	  <h2 >{{msg}}</h2>
-	  <h2 >{{status}}</h2>
-	</div>
-	<form id="frm01" class="form-inline"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" v-model="id" />
-	    <input class="form-control mr-sm-2" v-model="pass" />
- 	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>       
-</div>
-</body>
+      $(document).ready(function () {
+        var vm = new Vue({
+          el: ".container",
+          data: {
+            msg: "뷰인스턴스 라이프 사이클",
+            id: "",
+            pass: "",
+            status: "",
+          },
+          created() {
+            console.log("# 인스턴스 생성! #");
+            this.status = "# 인스턴스 생성!#";
+          },
+          beforeUpdated() {
+            console.log("# 수정 직전! #");
+            this.status = "# 수정 직전! #";
+            console.log("아이디:" + this.id);
+            console.log("패스워드:" + this.pass);
+          },
+          updated() {
+            console.log("# 수정 후! #");
+            this.status = "# 수정 후! #";
+            console.log("아이디:" + this.id);
+            console.log("패스워드:" + this.pass);
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h2>{{msg}}</h2>
+        <h2>{{status}}</h2>
+      </div>
+      <form id="frm01" class="form-inline" method="post">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <input class="form-control mr-sm-2" v-model="id" />
+          <input class="form-control mr-sm-2" v-model="pass" />
+        </nav>
+      </form>
+      <table class="table table-hover table-striped">
+        <col width="10%" />
+        <col width="50%" />
+        <col width="15%" />
+        <col width="15%" />
+        <col width="10%" />
+        <thead>
+          <tr class="table-success text-center">
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
